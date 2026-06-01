@@ -6,11 +6,8 @@ def random_forest_vote(predictions):
     """
     # Write code here
     predictions = np.array(predictions)
-
-    result = []
-
-    for sample_preds in predictions.T:
-        labels, counts = np.unique(sample_preds, return_counts=True)
-        result.append(labels[np.argmax(counts)])
-
-    return result
+    majority_pred = []
+    for pred in predictions.T:
+        labels, counts = np.unique(pred, return_counts = True)
+        majority_pred.append(labels[np.argmax(counts)])
+    return majority_pred
